@@ -1,13 +1,13 @@
 - hosts: mysql-server*
-  become: no
+  become: yes
   tasks:
-    - name: copy mysql files
-      copy:
-        src: /vagrant/mysql80-community-release-el7-3.noarch.rpm
-        dest: ~/
-        remote_src: yes
-        mode: preserve
-        force: no
+#    - name: copy mysql files
+#      copy:
+#        src: /vagrant/mysql80-community-release-el7-3.noarch.rpm
+#        dest: ~/
+#        remote_src: yes
+#        mode: preserve
+#        force: no
 
 #    - name: bind ip
 #      lineinfile:
@@ -18,10 +18,11 @@
 
     - name: install mysql yum repo
       yum:
-        name: ~/mysql80-community-release-el7-3.noarch.rpm
+        name: /vagrant/mysql80-community-release-el7-3.noarch.rpm
         state: present
 
     - name: install mysql server
       yum:
         name: mysql-community-server
         state: present
+

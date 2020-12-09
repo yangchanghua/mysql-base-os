@@ -11,3 +11,12 @@ show variables like 'validate%';
 alter user  'root'@'localhost' identified with mysql_native_password by '1234';
 select user from user;
 EOF
+create user 'zlh'@'%'  identified with mysql_native_password by 'Abcd!1234';
+
+mysql> create user 'zlh'@'%'  identified with mysql_native_password by 'Abcd!1234';
+Query OK, 0 rows affected (0.00 sec)
+
+mysql>  GRANT ALL PRIVILEGES ON *.* to 'zlh'@'%';
+Query OK, 0 rows affected (0.01 sec)
+
+
